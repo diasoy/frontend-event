@@ -1,11 +1,32 @@
 import "@/styles/globals.css";
-import { HeroUIProvider } from "@heroui/react";
+import { cn, HeroUIProvider } from "@heroui/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { SessionProvider } from "next-auth/react";
 import type { AppProps } from "next/app";
+import { Inter } from "next/font/google";
 
-export default function App({ Component, pageProps }: AppProps) {
+const inter = Inter({ subsets: ["latin"] });
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    },
+  },
+});
+export default function App({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   return (
-    <HeroUIProvider>
-      <Component {...pageProps} />
-    </HeroUIProvider>
+    <SessionProvider session={session}>
+      <QueryClientProvider client={queryClient}>
+        <HeroUIProvider>
+          <main className={cn(inter.className)}>
+            <Component {...pageProps} />
+          </main>
+        </HeroUIProvider>
+      </QueryClientProvider>
+    </SessionProvider>
   );
 }
