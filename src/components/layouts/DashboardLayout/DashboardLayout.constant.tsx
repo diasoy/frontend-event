@@ -1,5 +1,6 @@
 import {
   CiBookmark,
+  CiHome,
   CiShoppingTag,
   CiUser,
   CiViewList,
@@ -7,6 +8,12 @@ import {
 } from "react-icons/ci";
 
 const SIDEBAR_ADMIN = [
+  {
+    key: "dashboard",
+    label: "Dashboard",
+    href: "/admin/dashboard",
+    icon: <CiHome />,
+  },
   {
     key: "event",
     label: "Event",
