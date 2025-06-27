@@ -1,22 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Frontend Event Management System
 
-## Getting Started
+This is the frontend application for the Event Management System built with Next.js, React, TypeScript, and Tailwind CSS.
 
-First, run the development server:
+## Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+## Installation
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Copy environment file:
+
+```bash
+cp .env.example .env
+```
+
+3. Update the `.env` file with your configuration:
+   - Backend API URL
+   - NextAuth configuration
+   - Midtrans configuration
+
+## Running the Application
+
+### Development Mode
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will start on http://localhost:3001
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Production Mode
+
+```bash
+npm run build
+npm start
+```
+
+### Linting
+
+```bash
+npm run lint
+```
+
+## Environment Variables
+
+Check `.env.example` for all required environment variables:
+
+- `NEXT_PUBLIC_API_URL`: Backend API URL (http://localhost:3000/api)
+- `NEXTAUTH_SECRET`: Secret for NextAuth
+- `NEXTAUTH_URL`: NextAuth callback URL
+- `NEXT_PUBLIC_MIDTRANS_SNAP_URL`: Midtrans Snap URL
+- `NEXT_PUBLIC_MIDTRANS_CLIENT_KEY`: Midtrans client key
+
+## Features
+
+- User Authentication (Register, Login, Profile)
+- Event Browsing and Management
+- Order Management and History
+- Payment Integration with Midtrans
+- Admin Dashboard
+- Member Dashboard
+- Responsive Design
+- Server-side Rendering with Next.js
+
+## Tech Stack
+
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS
+- NextAuth.js for authentication
+- React Query for state management
+- Axios for API calls
+- Hero UI for components
+- React Hook Form for forms
+
+## Pages Structure
+
+- `/` - Landing page
+- `/auth/login` - Login page
+- `/auth/register` - Registration page
+- `/event/[slug]` - Event details
+- `/admin/*` - Admin dashboard (protected)
+- `/member/*` - Member dashboard (protected)
+- `/payment/*` - Payment pages
+
+## Development Notes
+
+- The app runs on port 3001 to avoid conflicts with the backend (port 3000)
+- Authentication is handled with NextAuth.js
+- API calls are made through Axios with automatic token injection
+- The app uses middleware for route protection
 
 [API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 

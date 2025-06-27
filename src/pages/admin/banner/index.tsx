@@ -1,17 +1,16 @@
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-import Dashboard from "@/components/views/Admin/Dashboard";
-import React from "react";
+import Banner from "@/components/views/Admin/Banner";
 
-const DashboardAdminPage = () => {
+const AdminBannerPage = () => {
   return (
     <DashboardLayout
-      title="Acara | Admin"
-      description="Banner Admin"
+      title="Banner"
+      description="List of all banners, create new banner, and manage existing banners."
       type="admin"
     >
-      <Dashboard />
+      <Banner />
     </DashboardLayout>
   );
 };
 
-export default DashboardAdminPage;
+export default AdminBannerPage;

@@ -1,18 +1,16 @@
 import DashboardLayout from "@/components/layouts/DashboardLayout";
 import Category from "@/components/views/Admin/Category";
-import Dashboard from "@/components/views/Admin/Dashboard";
-import React from "react";
 
-const CategoryAdminPage = () => {
+const AdminCategoryPage = () => {
   return (
     <DashboardLayout
-      title="Acara | Admin"
-      description="List of all Categories, create new Categories, and manage existing Categories"
+      title="Category"
+      description="List of all Categories, create new category, and manage existing categories."
       type="admin"
     >
-      <Category></Category>
+      <Category />
     </DashboardLayout>
   );
 };
 
-export default CategoryAdminPage;
+export default AdminCategoryPage;

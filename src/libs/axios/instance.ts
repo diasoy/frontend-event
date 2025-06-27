@@ -2,6 +2,7 @@ import environment from "@/config/environment";
 import { SessionExtended } from "@/types/Auth";
 import axios from "axios";
 import { getSession } from "next-auth/react";
+import { onErrorHander } from "./reponseHandler";
 
 const headers = {
   "Content-Type": "application/json",
@@ -26,7 +27,14 @@ instance.interceptors.request.use(
 
 instance.interceptors.response.use(
   (response) => response,
-  (error) => Promise.reject(error),
+  (error) => {
+    // Only handle token expiration, don't handle other errors automatically
+    const { response } = error;
+    if (response?.status === 401 && response?.data?.data?.name === "TokenExpiredError") {
+      onErrorHander(error);
+    }
+    return Promise.reject(error);
+  },
 );
 
 export default instance;

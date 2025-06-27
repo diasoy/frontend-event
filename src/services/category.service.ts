@@ -4,7 +4,7 @@ import { ICategory } from "@/types/Category";
 
 const categoryServices = {
   getCategories: (params?: string) =>
-    instance.get(`${endpoint.CATEGORY}?${params}`),
+    instance.get(params ? `${endpoint.CATEGORY}?${params}` : endpoint.CATEGORY),
   getCategoryById: (id: string) => instance.get(`${endpoint.CATEGORY}/${id}`),
   addCategory: (payload: ICategory) =>
     instance.post(endpoint.CATEGORY, payload),

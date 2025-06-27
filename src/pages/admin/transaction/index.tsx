@@ -1,17 +1,16 @@
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-import Dashboard from "@/components/views/Admin/Dashboard";
-import React from "react";
+import Transaction from "@/components/views/Admin/Transaction";
 
-const DashboardAdminPage = () => {
+const TransactionAdminPage = () => {
   return (
     <DashboardLayout
-      title="Acara | Admin"
-      description="Transaction Admin"
+      title="Transaction"
+      description="List of all transaction"
       type="admin"
     >
-      <Dashboard />
+      <Transaction />
     </DashboardLayout>
   );
 };
 
-export default DashboardAdminPage;
+export default TransactionAdminPage;

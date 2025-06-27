@@ -1,17 +1,16 @@
 import DashboardLayout from "@/components/layouts/DashboardLayout";
-import Dashboard from "@/components/views/Admin/Dashboard";
-import React from "react";
+import Event from "@/components/views/Admin/Event";
 
-const DashboardAdminPage = () => {
+const AdminEventPage = () => {
   return (
     <DashboardLayout
-      title="Acara | Admin"
-      description="Event Admin"
+      title="Event"
+      description="List of all events, create new event, and manage existing events."
       type="admin"
     >
-      <Dashboard />
+      <Event />
     </DashboardLayout>
   );
 };
 
-export default DashboardAdminPage;
+export default AdminEventPage;
